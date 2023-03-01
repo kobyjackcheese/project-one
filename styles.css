@@ -28,9 +28,6 @@ button:hover {
     transform: scale(1.2)
 }
 
-h2 {
-    
-}
-h3{
-    
+.clear {
+    font-size: 1rem;
 }

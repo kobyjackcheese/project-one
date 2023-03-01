@@ -6,4 +6,4 @@ this will be a game where you play rock paper scissors against a computer. perha
 
 i will try and make a section of the page that shows the past selections of both the player and the computer.
 
-player should be able to click a button, making a selection which then triggers the computer to make its own selection (maybe based on the past 5 or so selections) and then displaying the results and who wins.
+player should be able to click a button, making a selection which then triggers the computer to make its own selection (based on the past 5 or so selections) and then displaying the results and who wins.
