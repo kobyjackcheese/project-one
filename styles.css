@@ -6,8 +6,26 @@ h1 {
     text-align: center;
 }
 
-button {
+.selections {
+display: flex;
+justify-content: center;
+}
 
+button {
+background: none;
+border: none;
+outline: none;
+font-size: 7rem;
+transition: 100ms;
+}
+
+.paper {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+button:hover {
+    transform: scale(1.2)
 }
 
 h2 {
