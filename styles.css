@@ -31,3 +31,21 @@ button:hover {
 .clear {
     font-size: 1rem;
 }
+
+h4 {
+    font-size: 1.3rem;
+    color:bisque;
+}
+
+.results {
+    display: flex;
+    justify-content: center;
+}
+
+.scoreboard {
+    display: flex;
+   justify-content: flex-start;
+   justify-content: center;
+   justify-content: space-around;
+   height: 100px;
+}

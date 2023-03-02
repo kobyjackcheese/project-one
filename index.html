@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,24 +9,50 @@
     <script src="./app.js" defer></script>
     <title>Document</title>
 </head>
+
 <body>
     <button class="clear">clear all</button>
 
-    <h1>Rock Paper Scissors</h1>
+    <h1>Unbeatable Rock Paper Scissors</h1>
     <br>
     <br>
-<div class="selections">
-    <button class="rock">🪨</button>
-    <button class="paper">📄</button>
-    <button class="scissors">✂️</button>
-</div>
-    <h2>your score:</h2>
-    <h3 class="playerScore">(score here)</h3>
-    <h2>CPU score:</h2>
-    <h3 class="cpuScore">(score here)</h3>
-    <h2>CPU choices:</h2>
-    <h3 class="cpuChoices">(cpu choices here)</h3>
-    <h2>player choices</h2>
-    <h3 class="playerChoices">(player choices here)</h3>
+    <div class="selections">
+        <button class="rock">🪨</button>
+        <button class="paper">📄</button>
+        <button class="scissors">✂️</button>
+    </div>
+
+    <div class="results">
+        <h2>round result:</h2>
+        <h4 class="result"></h4>
+    </div>
+
+
+    <div class="scoreboard">
+        <div class="yourScore">
+            <h2 class="yscore">your score:</h2>
+            <h4 class="playerScore"> </h4>
+        </div>
+
+        <div class="cScore">
+            <h2>CPU score:</h2>
+            <h4 class="cpuScore"> </h4>
+        </div>
+    </div>
+
+    <div class="cChoices">
+        <h2>CPU choices:</h2>
+        <h4 class="cpuChoices"> </h4>
+    </div>
+
+
+
+    <div class="pChoices">
+        <h2>player choices:</h2>
+        <h4 class="playerChoices"> </h4>
+    </div>
+
+
 </body>
+
 </html>
