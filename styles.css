@@ -49,3 +49,16 @@ h4 {
    justify-content: space-around;
    height: 100px;
 }
+.roundCounter {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.roundCount {
+    color:bisque;
+    margin-left: 10px;
+}
+
+.slash {
+    color:bisque;
+}

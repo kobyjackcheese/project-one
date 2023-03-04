@@ -7,6 +7,7 @@ const clearButton = document.querySelector('.clear');
 const playerChoice = document.querySelector('.playerChoices');
 const cpuChoice = document.querySelector('.cpuChoices');
 const result = document.querySelector('.result');
+const roundCounter = document.querySelector('.roundCount');
 
 
 const choices = ["🪨", "📄", "✂️"];
@@ -16,15 +17,13 @@ let cpuWins = 0
 let playerWins = 0
 let weightRandom = [[], [], []];
 let turnCount = 0
-//1 is rock, 2 is paper 3 is scissors
+let roundCount = 0
 
 
 
 function pickRock() {
-    let playerSelection = "🪨"
-    let cpuSelection = choices[Math.floor(Math.random() * choices.length)];
     weightRandom[0].push('wow')
-
+    roundCount = roundCount + 1
     let longestArr = 0
 
     for (let i = 1; i < weightRandom.length; i++) {
@@ -32,7 +31,6 @@ function pickRock() {
             longestArr = i
         }
     }
-
 
     if (longestArr === 0) {
         cpuSelection = choices[1]
@@ -57,20 +55,18 @@ function pickRock() {
     cpuChoice.innerHTML = cpuSelections
     playerScore.innerHTML = playerWins
     cpuScore.innerHTML = cpuWins
+    roundCounter.innerHTML = roundCount
     turnCount = turnCount + 1
     console.log(turnCount)
     if (turnCount === 10) {
-        console.log('game over')
-        setTimeout(gameOver, 2000)
+        setTimeout(checkWinner, 2000)
         disableButtons()
     }
 }
 
 function pickPaper() {
-    let playerSelection = "paper"
-    let cpuSelection = choices[Math.floor(Math.random() * choices.length)];
     weightRandom[1].push('wow')
-
+    roundCount = roundCount + 1
     let longestArr = 0
 
     for (let i = 1; i < weightRandom.length; i++) {
@@ -78,7 +74,6 @@ function pickPaper() {
             longestArr = i
         }
     }
-
 
     if (longestArr === 0) {
         cpuSelection = choices[1]
@@ -103,20 +98,18 @@ function pickPaper() {
     cpuChoice.innerHTML = cpuSelections
     playerScore.innerHTML = playerWins
     cpuScore.innerHTML = cpuWins
+    roundCounter.innerHTML = roundCount
     turnCount = turnCount + 1
     console.log(turnCount)
     if (turnCount === 10) {
-        console.log('game over')
-        setTimeout(gameOver, 2000)
+        setTimeout(checkWinner, 2000)
         disableButtons()
     }
 }
 
 function pickScissors() {
-    let playerSelection = "scissors"
-    let cpuSelection = choices[Math.floor(Math.random() * choices.length)];
     weightRandom[2].push('wow')
-
+    roundCount = roundCount + 1
     let longestArr = 0
 
     for (let i = 1; i < weightRandom.length; i++) {
@@ -149,11 +142,11 @@ function pickScissors() {
     cpuChoice.innerHTML = cpuSelections
     playerScore.innerHTML = playerWins
     cpuScore.innerHTML = cpuWins
+    roundCounter.innerHTML = roundCount
     turnCount = turnCount + 1
-    console.log(turnCount)
+
     if (turnCount === 10) {
-        console.log('game over')
-        setTimeout(gameOver, 2000)
+        setTimeout(checkWinner, 2000)
         disableButtons()
     }
 }
@@ -165,6 +158,8 @@ function clear() {
     cpuWins = 0
     weightRandom = [[], [], []]
     turnCount = 0
+    roundCount = 0
+    roundCounter.innerHTML = roundCount
     playerChoice.innerHTML = playerSelections
     cpuChoice.innerHTML = cpuSelections
     playerScore.innerHTML = playerWins
@@ -175,15 +170,22 @@ function clear() {
     paperButton.disabled = false
 }
 
-function gameOver() {
-    clear()
-    alert('you lost.')
-}
 function disableButtons() {
     rockButton.disabled = true
     scissorsButton.disabled = true
     paperButton.disabled = true
 }
+
+function checkWinner () {
+  if (cpuWins > playerWins) {
+    alert ('you lost.')
+  }else if (playerWins > cpuWins) {
+    alert ('you win!')
+  }
+  clear()
+}
+
+
 
 rockButton.addEventListener('click', pickRock);
 paperButton.addEventListener('click', pickPaper);
