@@ -51,13 +51,20 @@ function pickRock() {
     }
     playerSelections.push("🪨")
     cpuSelections.push(cpuSelection)
-    playerChoice.innerHTML = playerSelections
-    cpuChoice.innerHTML = cpuSelections
+
+    const rock = document.createElement('p')
+    rock.innerText = '🪨'
+    playerChoice.append(rock)
+
+    const cpuRock = document.createElement('p')
+    cpuRock.innerText = cpuSelection
+    cpuChoice.append(cpuRock)
+
+    // cpuChoice.innerHTML = cpuSelections
     playerScore.innerHTML = playerWins
     cpuScore.innerHTML = cpuWins
     roundCounter.innerHTML = roundCount
     turnCount = turnCount + 1
-    console.log(turnCount)
     if (turnCount === 10) {
         setTimeout(checkWinner, 2000)
         disableButtons()
@@ -94,13 +101,19 @@ function pickPaper() {
     }
     playerSelections.push("📄")
     cpuSelections.push(cpuSelection)
-    playerChoice.innerHTML = playerSelections
-    cpuChoice.innerHTML = cpuSelections
+
+    const paper = document.createElement('p')
+    paper.innerText = '📄'
+    playerChoice.append(paper)
+
+    const cpuPaper = document.createElement('p')
+    cpuPaper.innerText = cpuSelection
+    cpuChoice.append(cpuPaper)
+
     playerScore.innerHTML = playerWins
     cpuScore.innerHTML = cpuWins
     roundCounter.innerHTML = roundCount
     turnCount = turnCount + 1
-    console.log(turnCount)
     if (turnCount === 10) {
         setTimeout(checkWinner, 2000)
         disableButtons()
@@ -138,13 +151,19 @@ function pickScissors() {
 
     playerSelections.push("✂️")
     cpuSelections.push(cpuSelection)
-    playerChoice.innerHTML = playerSelections
-    cpuChoice.innerHTML = cpuSelections
+
+    const scissors = document.createElement('p')
+    scissors.innerText = '✂️'
+    playerChoice.append(scissors)
+
+    const cpuScissors = document.createElement('p')
+    cpuScissors.innerText = cpuSelection
+    cpuChoice.append(cpuScissors)
+
     playerScore.innerHTML = playerWins
     cpuScore.innerHTML = cpuWins
     roundCounter.innerHTML = roundCount
     turnCount = turnCount + 1
-
     if (turnCount === 10) {
         setTimeout(checkWinner, 2000)
         disableButtons()
@@ -181,6 +200,8 @@ function checkWinner () {
     alert ('you lost.')
   }else if (playerWins > cpuWins) {
     alert ('you win!')
+  } else if (cpuWins === playerWins) {
+    alert ('its a tie')
   }
   clear()
 }

@@ -11,12 +11,28 @@
 </head>
 
 <body>
+
     <button class="clear">clear all</button>
 
-    <div class="roundCounter">
-        <h3 class="rounds">round count:</h3>
-        <h3 class="roundCount">0</h3>
-        <h3 class="slash">/10</h3>
+    <div class="sidebar">
+
+        <div class="roundCounter">
+            <h3 class="rounds">round count:</h3>
+            <h3 class="roundCount">0</h3>
+            <h3 class="slash">/10</h3>
+        </div>
+
+        <div class="scoreboard">
+            <div class="yourScore">
+                <h3 class="yscore">your score:</h3>
+                <h3 class="playerScore">0</h3>
+            </div>
+
+            <div class="cScore">
+                <h3>CPU score:</h3>
+                <h3 class="cpuScore">0</h3>
+            </div>
+        </div>
     </div>
 
     <h1>(almost) Unbeatable Rock Paper Scissors</h1>
@@ -30,34 +46,21 @@
 
     <div class="results">
         <h2>round result:</h2>
-        <h4 class="result"></h4>
+        <h2 class="result"></h2>
     </div>
 
-
-    <div class="scoreboard">
-        <div class="yourScore">
-            <h2 class="yscore">your score:</h2>
-            <h4 class="playerScore"> </h4>
+    <div class="choiceColumn">
+        <div class="pChoices">
+            <h2>player choices</h2>
+            <div class="playerContainer"><div class="playerChoices"></div></div>
         </div>
 
-        <div class="cScore">
-            <h2>CPU score:</h2>
-            <h4 class="cpuScore"> </h4>
+        <div class="cChoices">
+            <h2>CPU choices</h2>
+           <div class="cpuContainer"><div class="cpuChoices"></div>
+           </div>
         </div>
     </div>
-
-    <div class="cChoices">
-        <h2>CPU choices:</h2>
-        <h4 class="cpuChoices"></h4>
-    </div>
-
-
-
-    <div class="pChoices">
-        <h2>player choices:</h2>
-        <h4 class="playerChoices"></h4>
-    </div>
-
 
 </body>
 
