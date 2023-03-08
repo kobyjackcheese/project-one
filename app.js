@@ -10,6 +10,7 @@ const result = document.querySelector('.result');
 const roundCounter = document.querySelector('.roundCount');
 
 
+
 const choices = ["🪨", "📄", "✂️"];
 let playerSelections = []
 let cpuSelections = []
@@ -22,6 +23,9 @@ let roundCount = 0
 
 
 function pickRock() {
+    const lose = new Audio("./boom.mp3")
+    const win = new Audio("./win.mp3")
+    const tie = new Audio("./tie.mp3")
     weightRandom[0].push('wow')
     roundCount = roundCount + 1
     let longestArr = 0
@@ -58,16 +62,19 @@ function pickRock() {
         rock.style.opacity = ".5"
         rock.style.fontSize = "3rem"
         cpuRock.style.fontSize = "3rem"
+        tie.play()
     } else if (cpuSelection === "📄") {
         result.innerHTML = "cpu wins"
         cpuWins = cpuWins + 1
         rock.style.opacity = ".5"
         rock.style.fontSize = "3rem"
+        lose.play()
     } else if (cpuSelection === "✂️") {
         result.innerHTML = "player wins"
         playerWins = playerWins + 1
         cpuRock.style.opacity = ".5"
         cpuRock.style.fontSize = "3rem"
+        win.play()
     }
 
 
@@ -82,6 +89,9 @@ function pickRock() {
 }
 
 function pickPaper() {
+    const lose = new Audio("./boom.mp3")
+    const win = new Audio("./win.mp3")
+    const tie = new Audio("./tie.mp3")
     weightRandom[1].push('wow')
     roundCount = roundCount + 1
     let longestArr = 0
@@ -116,17 +126,20 @@ function pickPaper() {
         playerWins = playerWins + 1
         cpuPaper.style.opacity = ".5"
         cpuPaper.style.fontSize = "3rem"
+        win.play()
     } else if (cpuSelection === "📄") {
         result.innerHTML = "its a tie"
         paper.style.opacity = ".5"
         cpuPaper.style.opacity = ".5"
         paper.style.fontSize = "3rem"
         cpuPaper.style.fontSize = "3rem"
+        tie.play()
     } else if (cpuSelection === "✂️") {
         result.innerHTML = "cpu wins"
         cpuWins = cpuWins + 1
         paper.style.opacity = ".5"
         paper.style.fontSize = "3rem"
+        lose.play()
     }
 
     playerScore.innerHTML = playerWins
@@ -140,6 +153,9 @@ function pickPaper() {
 }
 
 function pickScissors() {
+    const lose = new Audio("./boom.mp3")
+    const win = new Audio("./win.mp3")
+    const tie = new Audio("./tie.mp3")
     weightRandom[2].push('wow')
     roundCount = roundCount + 1
     let longestArr = 0
@@ -174,17 +190,20 @@ function pickScissors() {
         cpuWins = cpuWins + 1
         scissors.style.opacity = ".5"
         scissors.style.fontSize = "3rem"
+        lose.play()
     } else if (cpuSelection === "📄") {
         result.innerHTML = "player wins"
         playerWins = playerWins + 1
         cpuScissors.style.opacity = ".5"
         cpuScissors.style.fontSize = "3rem"
+        win.play()
     } else if (cpuSelection === "✂️") {
         result.innerHTML = "its a tie"
         cpuScissors.style.opacity = ".5"
         scissors.style.opacity = ".5"
         scissors.style.fontSize = "3rem"
         cpuScissors.style.fontSize = "3rem"
+        tie.play()
     }
 
 
@@ -224,6 +243,7 @@ function disableButtons() {
 }
 
 function checkWinner() {
+    const lose = new Audio("./boom.mp3")
     if (cpuWins > playerWins) {
         alert('you lost.')
     } else if (playerWins > cpuWins) {
