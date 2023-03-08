@@ -117,15 +117,7 @@ button:hover {
 }
 
 p {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin: 10px;
 }
 
-.winnerSelection {
-
-}
-
-.loserSelection {
-    opacity: 60%;
-    font-size: 2rem;
-}

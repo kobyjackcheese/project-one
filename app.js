@@ -40,27 +40,36 @@ function pickRock() {
         cpuSelection = choices[0]
     }
 
-    if (cpuSelection === "🪨") {
-        result.innerHTML = "its a tie"
-    } else if (cpuSelection === "📄") {
-        result.innerHTML = "cpu wins"
-        cpuWins = cpuWins + 1
-    } else if (cpuSelection === "✂️") {
-        result.innerHTML = "player wins"
-        playerWins = playerWins + 1
-    }
-
     playerSelections.unshift("🪨")
     cpuSelections.unshift(cpuSelection)
 
     const rock = document.createElement('p')
     rock.innerText = '🪨'
     playerChoice.prepend(rock)
-    rock.style.opacity = ".5"
+
 
     const cpuRock = document.createElement('p')
     cpuRock.innerText = cpuSelection
     cpuChoice.prepend(cpuRock)
+
+    if (cpuSelection === "🪨") {
+        result.innerHTML = "its a tie"
+        cpuRock.style.opacity = ".5"
+        rock.style.opacity = ".5"
+        rock.style.fontSize = "3rem"
+        cpuRock.style.fontSize = "3rem"
+    } else if (cpuSelection === "📄") {
+        result.innerHTML = "cpu wins"
+        cpuWins = cpuWins + 1
+        rock.style.opacity = ".5"
+        rock.style.fontSize = "3rem"
+    } else if (cpuSelection === "✂️") {
+        result.innerHTML = "player wins"
+        playerWins = playerWins + 1
+        cpuRock.style.opacity = ".5"
+        cpuRock.style.fontSize = "3rem"
+    }
+
 
     playerScore.innerHTML = playerWins
     cpuScore.innerHTML = cpuWins
@@ -91,15 +100,6 @@ function pickPaper() {
         cpuSelection = choices[0]
     }
 
-    if (cpuSelection === "🪨") {
-        result.innerHTML = "player wins"
-        playerWins = playerWins + 1
-    } else if (cpuSelection === "📄") {
-        result.innerHTML = "its a tie"
-    } else if (cpuSelection === "✂️") {
-        result.innerHTML = "cpu wins"
-        cpuWins = cpuWins + 1
-    }
     playerSelections.unshift("📄")
     cpuSelections.unshift(cpuSelection)
 
@@ -110,6 +110,24 @@ function pickPaper() {
     const cpuPaper = document.createElement('p')
     cpuPaper.innerText = cpuSelection
     cpuChoice.prepend(cpuPaper)
+
+    if (cpuSelection === "🪨") {
+        result.innerHTML = "player wins"
+        playerWins = playerWins + 1
+        cpuPaper.style.opacity = ".5"
+        cpuPaper.style.fontSize = "3rem"
+    } else if (cpuSelection === "📄") {
+        result.innerHTML = "its a tie"
+        paper.style.opacity = ".5"
+        cpuPaper.style.opacity = ".5"
+        paper.style.fontSize = "3rem"
+        cpuPaper.style.fontSize = "3rem"
+    } else if (cpuSelection === "✂️") {
+        result.innerHTML = "cpu wins"
+        cpuWins = cpuWins + 1
+        paper.style.opacity = ".5"
+        paper.style.fontSize = "3rem"
+    }
 
     playerScore.innerHTML = playerWins
     cpuScore.innerHTML = cpuWins
@@ -140,16 +158,6 @@ function pickScissors() {
         cpuSelection = choices[0]
     }
 
-    if (cpuSelection === "🪨") {
-        result.innerHTML = "cpu wins"
-        cpuWins = cpuWins + 1
-    } else if (cpuSelection === "📄") {
-        result.innerHTML = "player wins"
-        playerWins = playerWins + 1
-    } else if (cpuSelection === "✂️") {
-        result.innerHTML = "its a tie"
-    }
-
     playerSelections.unshift("✂️")
     cpuSelections.unshift(cpuSelection)
 
@@ -160,6 +168,25 @@ function pickScissors() {
     const cpuScissors = document.createElement('p')
     cpuScissors.innerText = cpuSelection
     cpuChoice.prepend(cpuScissors)
+
+    if (cpuSelection === "🪨") {
+        result.innerHTML = "cpu wins"
+        cpuWins = cpuWins + 1
+        scissors.style.opacity = ".5"
+        scissors.style.fontSize = "3rem"
+    } else if (cpuSelection === "📄") {
+        result.innerHTML = "player wins"
+        playerWins = playerWins + 1
+        cpuScissors.style.opacity = ".5"
+        cpuScissors.style.fontSize = "3rem"
+    } else if (cpuSelection === "✂️") {
+        result.innerHTML = "its a tie"
+        cpuScissors.style.opacity = ".5"
+        scissors.style.opacity = ".5"
+        scissors.style.fontSize = "3rem"
+        cpuScissors.style.fontSize = "3rem"
+    }
+
 
     playerScore.innerHTML = playerWins
     cpuScore.innerHTML = cpuWins
@@ -196,15 +223,15 @@ function disableButtons() {
     paperButton.disabled = true
 }
 
-function checkWinner () {
-  if (cpuWins > playerWins) {
-    alert ('you lost.')
-  }else if (playerWins > cpuWins) {
-    alert ('you win!')
-  } else if (cpuWins === playerWins) {
-    alert ('its a tie')
-  }
-  clear()
+function checkWinner() {
+    if (cpuWins > playerWins) {
+        alert('you lost.')
+    } else if (playerWins > cpuWins) {
+        alert('you win!')
+    } else if (cpuWins === playerWins) {
+        alert('its a tie')
+    }
+    clear()
 }
 
 
