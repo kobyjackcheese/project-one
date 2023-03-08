@@ -49,24 +49,25 @@ function pickRock() {
         result.innerHTML = "player wins"
         playerWins = playerWins + 1
     }
-    playerSelections.push("🪨")
-    cpuSelections.push(cpuSelection)
+
+    playerSelections.unshift("🪨")
+    cpuSelections.unshift(cpuSelection)
 
     const rock = document.createElement('p')
     rock.innerText = '🪨'
-    playerChoice.append(rock)
+    playerChoice.prepend(rock)
+    rock.style.opacity = ".5"
 
     const cpuRock = document.createElement('p')
     cpuRock.innerText = cpuSelection
-    cpuChoice.append(cpuRock)
+    cpuChoice.prepend(cpuRock)
 
-    // cpuChoice.innerHTML = cpuSelections
     playerScore.innerHTML = playerWins
     cpuScore.innerHTML = cpuWins
     roundCounter.innerHTML = roundCount
     turnCount = turnCount + 1
     if (turnCount === 10) {
-        setTimeout(checkWinner, 2000)
+        setTimeout(checkWinner, 1500)
         disableButtons()
     }
 }
@@ -99,16 +100,16 @@ function pickPaper() {
         result.innerHTML = "cpu wins"
         cpuWins = cpuWins + 1
     }
-    playerSelections.push("📄")
-    cpuSelections.push(cpuSelection)
+    playerSelections.unshift("📄")
+    cpuSelections.unshift(cpuSelection)
 
     const paper = document.createElement('p')
     paper.innerText = '📄'
-    playerChoice.append(paper)
+    playerChoice.prepend(paper)
 
     const cpuPaper = document.createElement('p')
     cpuPaper.innerText = cpuSelection
-    cpuChoice.append(cpuPaper)
+    cpuChoice.prepend(cpuPaper)
 
     playerScore.innerHTML = playerWins
     cpuScore.innerHTML = cpuWins
@@ -149,16 +150,16 @@ function pickScissors() {
         result.innerHTML = "its a tie"
     }
 
-    playerSelections.push("✂️")
-    cpuSelections.push(cpuSelection)
+    playerSelections.unshift("✂️")
+    cpuSelections.unshift(cpuSelection)
 
     const scissors = document.createElement('p')
     scissors.innerText = '✂️'
-    playerChoice.append(scissors)
+    playerChoice.prepend(scissors)
 
     const cpuScissors = document.createElement('p')
     cpuScissors.innerText = cpuSelection
-    cpuChoice.append(cpuScissors)
+    cpuChoice.prepend(cpuScissors)
 
     playerScore.innerHTML = playerWins
     cpuScore.innerHTML = cpuWins

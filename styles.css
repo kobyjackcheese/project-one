@@ -26,6 +26,7 @@ transition: 100ms;
 
 button:hover {
     transform: scale(1.2)
+    
 }
 
 .clear {
@@ -90,7 +91,7 @@ button:hover {
 }
 
 .cChoices {
-    margin-left: 100px;
+    margin-left: 70px;
 }
 
 .pChoices {
@@ -112,5 +113,19 @@ button:hover {
 }
 
 .playerChoices, .cpuChoices {
+    font-size: 2rem;
+}
+
+p {
+    font-size: 3rem;
+    margin: 10px;
+}
+
+.winnerSelection {
+
+}
+
+.loserSelection {
+    opacity: 60%;
     font-size: 2rem;
 }
