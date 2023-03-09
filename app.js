@@ -20,21 +20,24 @@ let weightRandom = [[], [], []];
 let turnCount = 0
 let roundCount = 0
 
-
-
+//all 3 button functions are basically the same just slightly tweaked to fit each choice
 function pickRock() {
     const lose = new Audio("./boom.mp3")
     const win = new Audio("./win.mp3")
     const tie = new Audio("./tie.mp3")
-    weightRandom[0].push('wow')
+    let cpuSelection = ""
     roundCount = roundCount + 1
-    let longestArr = 0
 
+    weightRandom[0].push('wow')
+      //^^^^this here is what adds items to the correct array on line 19. each time you pick rock a "wow" gets added to the first nested array, paper adds wow to the second and scissors adds wow to the third. 
+
+    let longestArr = 0
     for (let i = 1; i < weightRandom.length; i++) {
         if (weightRandom[i].length > weightRandom[longestArr].length) {
             longestArr = i
         }
     }
+    //^^^^this for loop loops through the weightRandom array on line 19 to check and see which array has the most wows (checking for your most popular choice)
 
     if (longestArr === 0) {
         cpuSelection = choices[1]
@@ -43,6 +46,8 @@ function pickRock() {
     } else if (longestArr === 2) {
         cpuSelection = choices[0]
     }
+    //^^^^this is how the computer knows which selection to pick. basically it just notices your most popular selections and makes its choice based on that
+
 
     playerSelections.unshift("🪨")
     cpuSelections.unshift(cpuSelection)
@@ -51,10 +56,10 @@ function pickRock() {
     rock.innerText = '🪨'
     playerChoice.prepend(rock)
 
-
     const cpuRock = document.createElement('p')
     cpuRock.innerText = cpuSelection
     cpuChoice.prepend(cpuRock)
+    //^^^these 3 code blocks are what controls the column of past choices at the bottom of the screen and updates the DOM.
 
     if (cpuSelection === "🪨") {
         result.innerHTML = "its a tie"
@@ -76,22 +81,26 @@ function pickRock() {
         cpuRock.style.fontSize = "3rem"
         win.play()
     }
-
+    //^^^these conditonals are how the computer knows who wins each round. along with making the loser selections less opaque and smaller in the bottom past selections column and keeping track of the total score. 
 
     playerScore.innerHTML = playerWins
     cpuScore.innerHTML = cpuWins
     roundCounter.innerHTML = roundCount
     turnCount = turnCount + 1
+    //^^^all this does is upodate the DOM and keep track of the total rounds.
+
     if (turnCount === 10) {
         setTimeout(checkWinner, 1500)
         disableButtons()
     }
+    //^^^this is what stops the game after 10 rounds have gone by, and calls the checkWinner and disableButtons functions.
 }
 
 function pickPaper() {
     const lose = new Audio("./boom.mp3")
     const win = new Audio("./win.mp3")
     const tie = new Audio("./tie.mp3")
+    let cpuSelection = ""
     weightRandom[1].push('wow')
     roundCount = roundCount + 1
     let longestArr = 0
@@ -156,6 +165,7 @@ function pickScissors() {
     const lose = new Audio("./boom.mp3")
     const win = new Audio("./win.mp3")
     const tie = new Audio("./tie.mp3")
+    let cpuSelection = ""
     weightRandom[2].push('wow')
     roundCount = roundCount + 1
     let longestArr = 0
@@ -235,12 +245,14 @@ function clear() {
     scissorsButton.disabled = false
     paperButton.disabled = false
 }
+//^^^ this is the pointless clear all button function i made, basically just resets everything without having to reload the page. (also used to reset the game after 10 rounds)
 
 function disableButtons() {
     rockButton.disabled = true
     scissorsButton.disabled = true
     paperButton.disabled = true
 }
+//^^^bet you cant guesss what this does.
 
 function checkWinner() {
     const lose = new Audio("./boom.mp3")
@@ -253,7 +265,7 @@ function checkWinner() {
     }
     clear()
 }
-
+//^^^this function runs after 10 rounds have gone by, checking to see who had the most wins and who wins the whole game.
 
 
 rockButton.addEventListener('click', pickRock);
