@@ -59,7 +59,7 @@ function pickRock() {
     const cpuRock = document.createElement('p')
     cpuRock.innerText = cpuSelection
     cpuChoice.prepend(cpuRock)
-    //^^^these 3 code blocks are what controls the column of past choices at the bottom of the screen and updates the DOM.
+    //^^^these 3 code blocks are what controls the column of past choices at the bottom of the screen and updates the DOM. 
 
     if (cpuSelection === "🪨") {
         result.innerHTML = "its a tie"
@@ -245,7 +245,7 @@ function clear() {
     scissorsButton.disabled = false
     paperButton.disabled = false
 }
-//^^^ this is the pointless clear all button function i made, basically just resets everything without having to reload the page. (also used to reset the game after 10 rounds)
+//^^^ this is the clear all button function i made, basically just resets everything without having to reload the page. (also used to reset the game after 10 rounds)
 
 function disableButtons() {
     rockButton.disabled = true

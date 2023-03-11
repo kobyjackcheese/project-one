@@ -94,9 +94,6 @@ button:hover {
     margin-left: 70px;
 }
 
-.pChoices {
-
-}
 
 .playerContainer, .cpuContainer {
     display: flex;
